@@ -1,0 +1,12 @@
+---
+icingaweb2_admin_user: "icingaadmin"
+icingaweb2_admin_pass: "password"
+
+icingaweb2_web_db: "icingaweb2"
+icingaweb2_web_db_user: "icingaweb2"
+icingaweb2_web_db_pass: "icingaweb2"
+
+icingaweb2_ido_db: "icinga"
+icingaweb2_ido_db_user: "icinga"
+icingaweb2_ido_db_pass: "icinga"
+

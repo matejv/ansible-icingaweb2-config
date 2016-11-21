@@ -1,0 +1,11 @@
+---
+
+- include: icingaweb2_sql.yml
+
+- include: icingaweb2_enable_command.yml
+
+- include: icingaweb2_files.yml
+
+- name: Icinga Web2 configuration finished
+  debug: msg="Icinga Web2 configured. Available at http://{{ ansible_nodename }}//icingaweb2 Login with username {{ icingaweb2_admin_user }}"
+

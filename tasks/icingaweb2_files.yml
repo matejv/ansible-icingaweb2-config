@@ -1,0 +1,32 @@
+---
+
+- name: "Config file: resources.ini"
+  template: src=resources.ini.j2 dest=/etc/icingaweb2/resources.ini owner=www-data group=icingaweb2 mode=0660
+
+- name: "Config file: config.ini"
+  copy: src=config.ini dest=/etc/icingaweb2/config.ini owner=www-data group=icingaweb2 mode=0660
+
+- name: "Config file: authentication.ini"
+  copy: src=authentication.ini dest=/etc/icingaweb2/authentication.ini owner=www-data group=icingaweb2 mode=0660
+
+- name: "Config file: groups.ini"
+  copy: src=groups.ini dest=/etc/icingaweb2/groups.ini owner=www-data group=icingaweb2 mode=0660
+
+- name: "Config file: roles.ini"
+  template: src=roles.ini.j2 dest=/etc/icingaweb2/roles.ini owner=www-data group=icingaweb2 mode=0660
+
+- name: "Config file: modules/monitoring/config.ini"
+  copy: src=modules/monitoring/config.ini dest=/etc/icingaweb2/modules/monitoring/config.ini owner=www-data group=www-data mode=0660
+
+- name: "Config file: modules/monitoring/backends.ini"
+  copy: src=modules/monitoring/backends.ini dest=/etc/icingaweb2/modules/monitoring/backends.ini owner=www-data group=www-data mode=0660
+
+- name: "Config file: modules/monitoring/commandtransports.ini"
+  copy: src=modules/monitoring/commandtransports.ini dest=/etc/icingaweb2/modules/monitoring/commandtransports.ini owner=www-data group=www-data mode=0660
+
+- name: "Create enabledModules folder"
+  file: path=/etc/icingaweb2/enabledModules state=directory owner=www-data group=icingaweb2 mode=2750
+
+- name: "Create symlink to monitoring module"
+  file: path=/etc/icingaweb2/enabledModules/monitoring src=/usr/share/icingaweb2/modules/monitoring state=link
+

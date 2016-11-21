@@ -1,0 +1,10 @@
+---
+
+- name: Enable icinga2 command feature
+  command: icinga2 feature enable command
+
+- name: Restart Icinga2 to Apply the Configuration
+  service: name=icinga2
+           state=restarted
+           enabled=yes
+

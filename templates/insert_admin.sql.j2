@@ -1,0 +1,4 @@
+REPLACE INTO icingaweb_user (name, active, password_hash, ctime) VALUES ('{{ icingaweb2_admin_user }}', 1, '{{ icingaweb2_admin_hash.stdout }}', NOW());
+INSERT INTO icingaweb_group (name, ctime) SELECT * FROM (SELECT 'Administrators', NOW()) AS tmp WHERE NOT EXISTS ( SELECT name FROM icingaweb_group WHERE name='Administrators' ) LIMIT 1;
+REPLACE INTO icingaweb_group_membership (group_id, username, ctime) SELECT id, 'icingaadmin', NOW() FROM icingaweb_group WHERE name='Administrators';
+
